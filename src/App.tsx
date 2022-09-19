@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import firebase from "firebase/compat/app";
@@ -51,6 +51,7 @@ function ChatRoom() {
   const query = messagesRef.orderBy("createdAt").limit(25);
 
   const [messages] = useCollectionData(query, { idField: "id" });
+  const [formValue, setFormValue] = useState("");
 
   return (
     <>
@@ -58,6 +59,14 @@ function ChatRoom() {
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
       </div>
+
+      <form>
+        <input
+          value={formValue}
+          onChange={(e) => setFormValue(e.target.value)}
+        />
+        <button type="submit">▶️</button>
+      </form>
     </>
   );
 }
