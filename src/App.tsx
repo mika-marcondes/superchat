@@ -1,11 +1,12 @@
+import React from "react";
 import "./App.css";
 
-import firebase from "firebase/compat";
-import "firebase/firestore";
-import "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollection } from "react-firebase-hooks/firestore";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 
 firebase.initializeApp({
   apiKey: "AIzaSyDOyBr-MmbRbG9y0Ux6FpA5-mrYsaUQ2pY",
@@ -16,32 +17,8 @@ firebase.initializeApp({
   appId: "1:890002721394:web:cf5708d09d1c92e6aa10eb",
 });
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
-
-const [user] = useAuthState(auth);
-
 function App() {
-  return (
-    <div className="App">
-      <section>{user ? <ChatRoom /> : <SignIn />}</section>
-    </div>
-  );
+  return <div className="App"></div>;
 }
-
-function SignIn() {
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  };
-
-  return <button onClick={signInWithGoogle}>Sign in with Google</button>;
-}
-
-function SignOut() {
-  return auth.currentUser && <button onClick={() => auth.signOut()}></button>;
-}
-
-function ChatRoom() {}
 
 export default App;
