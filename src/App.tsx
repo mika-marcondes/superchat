@@ -17,8 +17,26 @@ firebase.initializeApp({
   appId: "1:890002721394:web:cf5708d09d1c92e6aa10eb",
 });
 
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
 function App() {
-  return <div className="App"></div>;
+  // @ts-ignore
+  const [user] = useAuthState(auth);
+
+  return (
+    <div className="App">
+      <section>{user ? <ChatRoom /> : <SignIn />}</section>
+    </div>
+  );
+}
+
+function SignIn() {
+  return <button>Sign in with Google</button>;
+}
+
+function ChatRoom() {
+  console.log("chatroom");
 }
 
 export default App;
