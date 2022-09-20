@@ -4,25 +4,17 @@ body {
   background-color: hsla(240, 14%, 10%, 0.50);
 }
 
-#root {
-}
-
 form {
+  position: fixed;
+  bottom: 1rem;
+  width: 100%;
+  max-width: 728px;
   display: flex;
-  align-items: center;
-}
-
-input {
-  padding: 0 1rem;
-  height: 45px;
-  width: 50vw;
-  border: 0;
-  border-radius: 4px 0 0 4px;
 }
 
 form > button {
   height: 45px;
-  width: 5rem;
+  width: 8rem;
   border: 0;
   border-radius: 0 4px 4px 0;
   font-size: small;
@@ -31,19 +23,30 @@ form > button {
   background: linear-gradient(90deg, #7367f0 0%, #ce9ffc 100%);
 }
 
+input {
+  padding: 0 1rem;
+  height: 45px;
+  width: 100%;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+}
+
 .received {
-  display: flex;
-  flex-direction: column;
+
 }
 
 .received img {
-  height: auto;
-  width: 35px;
-  border-radius: 50%;
-  background-color: white;
-  border: 1px solid white;
+
+}
+
+.received p {
+
 }
 
 .sent {
+
+}
+
+.sent img {
 
 }
